@@ -1,0 +1,35 @@
+1. Map Selection (-m or --map):
+Specifies a custom map file to be used for the game.
+
+Example: -m mapfile.txt
+
+2. Grid Height (-ht or --height):
+Sets the height of the grid for the game.
+
+Example: -ht 30
+
+3. Grid Width (-wd or --width):
+Sets the width of the grid for the game.
+
+Example: -wd 30
+
+4. Game Speed (-s or --speed):
+Adjusts the speed of the snake.
+
+Example: -s 1.5 (1.5 times the normal speed)
+
+5. Agent Selection (-p or --agent):
+Chooses the type of AI agent for the snake.
+
+Example: -p SearchAgent
+
+6. Algorithm Choice (-a or --algorithm):
+Selects the algorithm used by the AI agent.
+
+Options include: dfs (Depth-First Search), bfs (Breadth-First Search), A* (A-Star Search), H (Heuristic Search), rightTurn (Agent that turns right every few moves)
+Example: -a dfs
+
+7. Food Agent (-f or --food_agent):
+Specifies the AI agent for the food (if implemented).
+
+Example: -f bfs
