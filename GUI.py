@@ -101,9 +101,6 @@ class SnakeGameGUI:
             self.draw()
             self.displayNodesExplored(agent.getNodesExplored())
             self.update_score()
-
-            if self.game_state.food_items[0] != agent.getFood(self.game_state):
-                path = []  
             self.window.after(update_interval)
 
 
@@ -145,7 +142,7 @@ def main():
     parser.add_argument('-p', '--agent', help='Specify the agent type', required=False)
     parser.add_argument('-a', '--algorithm', help='Algorithm used by the agent', required=False)
     parser.add_argument('-f', '--food_agent', help='Specify the food agent type', required=False)
-    parser.add_argument('-fs', '--food_speed', help='Speed cost of food, larger mean slower', required=False)
+    parser.add_argument('-fs', '--food_speed',type=float, default=3.0, help='Speed cost of food, larger mean slower', required=False)
     parser.add_argument('-g', '--graphic', help='Graphic', required=False)
 
     args = parser.parse_args()
@@ -153,8 +150,6 @@ def main():
     print(f"Map: {args.map}, Height: {args.height}, Width: {args.width}, Speed: {args.speed}, Agent: {args.agent}, Algorithm: {args.algorithm}")
     custom_map = read_map_from_file(args.map) if args.map else None
     game_state = SnakeGameState(custom_map=custom_map, width=args.width, height=args.height,food_algorithm=args.food_agent,food_speed = args.food_speed)
-    
-
     gui = SnakeGameGUI(game_state, speed=args.speed)
 
 

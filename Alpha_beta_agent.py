@@ -6,7 +6,7 @@ class AlphaBetaAgent:
         self.nodes_explored = 0
 
     def getAction(self, gameState):
-        self.nodes_explored = 0
+
         log_file = open("log.txt", "a")  
 
         def log(message):

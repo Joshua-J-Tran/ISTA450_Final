@@ -38,12 +38,10 @@ class SnakeSearchProblem:
         return opposites.get(current_direction)
 
     def getCostOfActions(self, actions):
-
         if actions is None: return 999999
         x,y = self.getStartState()
         cost = 0
         for action in actions:
-
             cost += 1
             dx, dy = actionToVector(action)
             x, y = x + dx, y + dy
@@ -156,7 +154,6 @@ def heuristicSearch(problem):
     priorityQueue.push((startState, [], initial_direction), 0)
     nodes_explored = 0
     visited = set()
-
     while not priorityQueue.isEmpty():
         state, path, current_direction = priorityQueue.pop()
         if problem.isGoalState(state):

@@ -114,13 +114,14 @@ class SnakeGameState:
             dx, dy = direction_moves[action]
             new_head = (head_x + dx, head_y + dy)
             x,y = new_head
+            if new_head in new_state.walls or new_head in new_state.snake[1:]:
+                new_state.game_over=True
             if new_head not in [food.get_position() for food in new_state.food_items]:
                 new_state.snake.pop() 
             else:
                 new_state.score+=100
                 new_state.food_items.pop()
-            if new_head in new_state.walls or new_head in new_state.snake[1:]:
-                new_state.game_over=True
+
             if x < 0 or x >= self.width or y < 0 or y >= self.height:
                 new_state.game_over = True
             new_state.snake.insert(0, new_head)  
@@ -144,10 +145,12 @@ class SnakeGameState:
             return score + float("-inf")
         if currentGameState.food_items:
             currentGameState.counter=0
+            score -= 10*manhattanDistance (head, currentGameState.food_items[0].position)
         if not currentGameState.food_items:
             currentGameState.counter+=1
             survival_reward = 5 
             score += survival_reward * currentGameState.counter
+    
         return score 
 
 
